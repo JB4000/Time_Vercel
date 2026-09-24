@@ -1,3 +1,207 @@
+/* General page style */
 body {
-    background-color: lightblue;
+    background-color: rgb(43, 255, 181);
+}
+
+/* Main timeline layout */
+#timeline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#timeline-area {
+    position: relative;
+    flex-grow: 1;
+    height: 100px;
+}
+
+/* Space above the timeline is needed for the event labels */
+#timeline-section {
+    padding-top: 35px;
+}
+
+#timeline-line {
+    position: relative;
+    height: 4px;
+    background-color: black;
+    width: 100%;
+}
+
+/* Event markers and labels */
+.event-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.event-span {
+    position: absolute;
+    height: 8px;
+    background-color: red;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.event-label {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+/* Friend timelines. Friend A and B share these styles */
+#person-a-line,
+#person-b-line {
+    position: absolute;
+    height: 6px;
+    background-color: lightgray;
+    z-index: 1;
+}
+
+#person-a-line {
+    top: 40px;
+}
+
+#person-b-line {
+    top: 70px;
+}
+
+#today-marker {
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 2px;
+    background-color: black;
+}
+
+#person-a-lived {
+    position: absolute;
+    top: 40px;
+    height: 6px;
+    background-color: green;
+    z-index: 2;
+}
+
+#person-b-lived {
+    position: absolute;
+    top: 70px;
+    height: 6px;
+    background-color: green;
+    z-index: 2;
+}
+
+/* Friend A and Friend B share these styles */
+#person-a-line-label,
+#person-b-line-label {
+    position: absolute;
+    font-size: 12px;
+}
+
+#person-a-line-label {
+    top: 22px;
+}
+
+#person-b-line-label {
+    top: 52px;
+}
+
+
+/* Positioning of the three selected events and their labels */
+#selected-events {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.event-label-one {
+    bottom: 15px;
+}
+
+.event-label-two {
+    bottom: 35px;
+}
+
+.event-label-three {
+    bottom: 55px;
+}
+
+/* Creates the vertical line that connects an event label to its marker.
+   ::after creates a pseudo element. Pure CSS, no HTML element.
+   the pseudo element is placed relative to the event-label */
+.event-label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1px;
+    background-color: black;
+}
+
+/* the three different heights of the vertical lines. To avoid overlap of labels */
+.event-label-one::after {
+    top: 100%;
+    height: 15px;
+}
+
+.event-label-two::after {
+    top: 100%;
+    height: 35px;
+}
+
+.event-label-three::after {
+    top: 100%;
+    height: 55px;
+}
+
+/* Event information popup dialog*/
+#event-info {
+    padding: 20px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#event-info-title {
+    margin-top: 0;
+}
+
+#event-info p {
+    margin: 5px 0;
+}
+
+/* Layout of inputs and event selectors */
+#people-inputs {
+    display: flex;
+    gap: 40px;
+}
+
+#event-selects {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Spacing for the page header and headings */
+#page-header {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Large centered title at the top of page */
+#page-header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#page-header p {
+    margin: 4px 0;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
 }

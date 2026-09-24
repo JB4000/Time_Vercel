@@ -5,12 +5,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Conversational Timeline</title>
 </head>
 
 <body>
 
-    <h1>This is the age comparison</h1>
+    <header id="page-header">
+
+        <h1>A conversational timeline for the age-diverse friend group</h1>
+
+        <p>
+            Enter the birthdays of two friends, choose three events to place on the timeline. 
+        </p>
+        <p>
+            Click an event on the timeline to see the age of each person when it happened. Add your own events.
+        </p>
+
+
+    </header>
+
+    <!-- inputs for friend names and birthdays -->
+    <div id="people-inputs">
+        <section>
+            <h2>Friend A</h2>
+
+            <label for="person-a-name">Name</label>
+            <input id="person-a-name" type="text">
+
+            <label for="person-a-birthday">Birthday</label>
+            <input id="person-a-birthday" type="date" min="1950-01-01" max="2019-12-31">
+
+
+        </section>
+
+        <section>
+            <h2>Friend B</h2>
+
+            <label for="person-b-name">Name</label>
+            <input id="person-b-name" type="text">
+
+            <label for="person-b-birthday">Birthday</label>
+            <input id="person-b-birthday" type="date" min="1950-01-01" max="2019-12-31">
+
+
+        </section>
+    </div>
+
+    <!-- Dropdowns (select) for category and events, and 'Show us' button for choosing events to show on the timeline -->
+    <!-- The categories are hardcoded for now -->
+    <h2>Choose three events</h2>
+
+    <label for="event-category">Category</label>
+
+    <select id="event-category">
+        <option value="all">All events</option>
+        <option value="history">History</option>
+        <option value="technology">Technology</option>
+        <option value="internet">Internet</option>
+        <option value="science">Science</option>
+        <option value="gaming">Gaming</option>
+        <option value="culture">Culture</option>
+        <option value="music">Music</option>
+        <option value="denmark">Denmark</option>
+    </select>
+
+    <div id="event-selects">
+        <label for="event-one">Event 1</label>
+        <select id="event-one"></select>
+
+        <label for="event-two">Event 2</label>
+        <select id="event-two"></select>
+
+        <label for="event-three">Event 3</label>
+        <select id="event-three"></select>
+    </div>
+
+
+    <button id="show-persons">Show us</button>
+
+    <!-- The timelines and its popup dialog -->
+    <section id="timeline-section">
+
+        
+
+        <div id="timeline">
+
+            <span id="timeline-start">1950</span>
+
+            <div id="timeline-area">
+                <div id="timeline-line">
+                    <div id="selected-events"></div>
+                </div>
+                <div id="today-marker"></div>
+
+                <span id="person-a-line-label"></span>
+                <div id="person-a-line"></div>
+                <div id="person-a-lived"></div>
+
+                <span id="person-b-line-label"></span>
+                <div id="person-b-line"></div>
+                <div id="person-b-lived"></div>
+            </div>
+
+            <span id="timeline-end">2100</span>
+
+        </div>
+
+        <dialog id="event-info">
+
+            <h3 id="event-info-title"></h3>
+
+            <p id="event-info-date"></p>
+            <p><strong>Ages at this event</strong></p>
+            <p id="event-info-person-a"></p>
+            <p id="event-info-person-b"></p>
+
+            <button id="close-event-info">Close</button>
+
+        </dialog>
+
+    </section>
+
+    <!-- inputs for text and date, and a select for category for adding a new event -->
+    <h2>Add your own event</h2>
+
+    <label for="new-event-title">Title</label>
+    <input id="new-event-title" type="text">
+
+    <label for="new-event-date">Date</label>
+    <input id="new-event-date" type="date" min="1950-01-01" max="2099-12-31">
+
+
+    <label for="new-event-category">Category</label>
+    <select id="new-event-category">
+        <option value="history">History</option>
+        <option value="technology">Technology</option>
+        <option value="internet">Internet</option>
+        <option value="science">Science</option>
+        <option value="gaming">Gaming</option>
+        <option value="culture">Culture</option>
+        <option value="music">Music</option>
+        <option value="denmark">Denmark</option>
+    </select>
+
+    <button id="add-event">Add event</button>
 
 
 
